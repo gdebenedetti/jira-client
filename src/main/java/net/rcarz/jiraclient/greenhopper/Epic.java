@@ -34,9 +34,10 @@ import net.sf.json.JSONObject;
  */
 public class Epic extends GreenHopperIssue {
 
-    public String epicLabel = null;
-    public String epicColour = null;
-    public EpicStats epicStats = null;
+	private String epicLabel = null;
+    private String epicColour = null;
+    private EpicStats epicStats = null;
+    private EstimateStatistic estimateStatistic = null;
 
     /**
      * Creates an epic issue from a JSON payload.
@@ -57,6 +58,7 @@ public class Epic extends GreenHopperIssue {
         epicLabel = Field.getString(map.get("epicLabel"));
         epicColour = Field.getString(map.get("epicColor"));
         epicStats = GreenHopperField.getEpicStats(map.get("epicStats"));
+        estimateStatistic = GreenHopperField.getEstimateStatistic(map.get("estimateStatistic"));
     }
 
     public String getEpicLabel() {

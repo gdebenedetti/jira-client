@@ -19,14 +19,10 @@
 
 package net.rcarz.jiraclient.greenhopper;
 
-import net.rcarz.jiraclient.Field;
-import net.rcarz.jiraclient.Issue;
-import net.rcarz.jiraclient.JiraException;
-import net.rcarz.jiraclient.RestClient;
-
-import java.util.List;
 import java.util.Map;
 
+import net.rcarz.jiraclient.Field;
+import net.rcarz.jiraclient.RestClient;
 import net.sf.json.JSONObject;
 
 /**
@@ -34,7 +30,7 @@ import net.sf.json.JSONObject;
  */
 public class Epic extends GreenHopperIssue {
 
-	private String epicLabel = null;
+    private String epicLabel = null;
     private String epicColour = null;
     private EpicStats epicStats = null;
     private EstimateStatistic estimateStatistic = null;
@@ -72,5 +68,10 @@ public class Epic extends GreenHopperIssue {
     public EpicStats getEpicStats() {
         return epicStats;
     }
+
+	public EstimateStatistic getEstimateStatistic() {
+		return estimateStatistic;
+	}
+    
 }
 

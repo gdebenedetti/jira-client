@@ -23,16 +23,22 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 
 import net.rcarz.utils.WorklogUtils;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 /**
  * Represents a JIRA issue.
@@ -560,7 +566,6 @@ public class Issue extends Resource {
             this.startAt = startAt;
         }
         
-        @Override
         public boolean hasNext() {
             if (nextIssue != null) {
                 return true;
@@ -573,7 +578,6 @@ public class Issue extends Resource {
             return nextIssue != null;
         }
 
-        @Override
         public Issue next() {
             if (! hasNext()) {
                 throw new NoSuchElementException();
@@ -583,7 +587,6 @@ public class Issue extends Resource {
             return result;
         }
 
-        @Override
         public void remove() {
             throw new UnsupportedOperationException("Method remove() not support for class " +
                                                     this.getClass().getName());
